@@ -74,5 +74,16 @@ class Build : NukeBuild
                 .SetVerbosity(MSBuildVerbosity.Quiet)
                 .SetNodeReuse(IsLocalBuild));
         });
+
+    Target Test => _ => _
+        .DependsOn(Compile)
+        .OnlyWhenStatic(() => UnitTestsAvailable)
+        .Executes(() =>
+        {
+            foreach (var testDll in Solution.AllProjects.Where(p => IsUnitTestProject(p.Name)))
+            {
+                VSTestTasks.VSTest(_ => _.SetTestAssemblies(testDll));
+            }
+        });
     #endregion
 }
