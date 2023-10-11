@@ -200,11 +200,35 @@ window.addEventListener("load",function(){e.contentLoaded()},!1)}).call(e,n(9))}
 $(document).ready(function() {
   $("#Restore").addClass('highlight');
   $("#Compile").addClass('highlight');
-  $("#Clean").hover(
+  $("#ChangeLog").hover(
     function() {
+        $("#ChangeLog").removeClass('highlight');
         $("#Clean").removeClass('highlight');
+        $("#CodeAnalysis").removeClass('highlight');
+        $("#GetAssets").removeClass('highlight');
         $("#Restore").removeClass('highlight');
         $("#Compile").removeClass('highlight');
+        $("#ReCompile").removeClass('highlight');
+        $("#Publish").removeClass('highlight');
+        $("#Test").removeClass('highlight');
+        $("#ChangeLog").addClass('highlight');
+    },
+    function() {
+        $("#ChangeLog").removeClass('highlight');
+        $("#Restore").addClass('highlight');
+        $("#Compile").addClass('highlight');
+    });
+  $("#Clean").hover(
+    function() {
+        $("#ChangeLog").removeClass('highlight');
+        $("#Clean").removeClass('highlight');
+        $("#CodeAnalysis").removeClass('highlight');
+        $("#GetAssets").removeClass('highlight');
+        $("#Restore").removeClass('highlight');
+        $("#Compile").removeClass('highlight');
+        $("#ReCompile").removeClass('highlight');
+        $("#Publish").removeClass('highlight');
+        $("#Test").removeClass('highlight');
         $("#Clean").addClass('highlight');
     },
     function() {
@@ -212,11 +236,53 @@ $(document).ready(function() {
         $("#Restore").addClass('highlight');
         $("#Compile").addClass('highlight');
     });
-  $("#Restore").hover(
+  $("#CodeAnalysis").hover(
     function() {
+        $("#ChangeLog").removeClass('highlight');
         $("#Clean").removeClass('highlight');
+        $("#CodeAnalysis").removeClass('highlight');
+        $("#GetAssets").removeClass('highlight');
         $("#Restore").removeClass('highlight');
         $("#Compile").removeClass('highlight');
+        $("#ReCompile").removeClass('highlight');
+        $("#Publish").removeClass('highlight');
+        $("#Test").removeClass('highlight');
+        $("#CodeAnalysis").addClass('highlight');
+    },
+    function() {
+        $("#CodeAnalysis").removeClass('highlight');
+        $("#Restore").addClass('highlight');
+        $("#Compile").addClass('highlight');
+    });
+  $("#GetAssets").hover(
+    function() {
+        $("#ChangeLog").removeClass('highlight');
+        $("#Clean").removeClass('highlight');
+        $("#CodeAnalysis").removeClass('highlight');
+        $("#GetAssets").removeClass('highlight');
+        $("#Restore").removeClass('highlight');
+        $("#Compile").removeClass('highlight');
+        $("#ReCompile").removeClass('highlight');
+        $("#Publish").removeClass('highlight');
+        $("#Test").removeClass('highlight');
+        $("#GetAssets").addClass('highlight');
+    },
+    function() {
+        $("#GetAssets").removeClass('highlight');
+        $("#Restore").addClass('highlight');
+        $("#Compile").addClass('highlight');
+    });
+  $("#Restore").hover(
+    function() {
+        $("#ChangeLog").removeClass('highlight');
+        $("#Clean").removeClass('highlight');
+        $("#CodeAnalysis").removeClass('highlight');
+        $("#GetAssets").removeClass('highlight');
+        $("#Restore").removeClass('highlight');
+        $("#Compile").removeClass('highlight');
+        $("#ReCompile").removeClass('highlight');
+        $("#Publish").removeClass('highlight');
+        $("#Test").removeClass('highlight');
         $("#Restore").addClass('highlight');
     },
     function() {
@@ -226,15 +292,89 @@ $(document).ready(function() {
     });
   $("#Compile").hover(
     function() {
+        $("#ChangeLog").removeClass('highlight');
         $("#Clean").removeClass('highlight');
+        $("#CodeAnalysis").removeClass('highlight');
+        $("#GetAssets").removeClass('highlight');
         $("#Restore").removeClass('highlight');
         $("#Compile").removeClass('highlight');
+        $("#ReCompile").removeClass('highlight');
+        $("#Publish").removeClass('highlight');
+        $("#Test").removeClass('highlight');
         $("#Restore").addClass('highlight');
         $("#Compile").addClass('highlight');
     },
     function() {
         $("#Restore").removeClass('highlight');
         $("#Compile").removeClass('highlight');
+        $("#Restore").addClass('highlight');
+        $("#Compile").addClass('highlight');
+    });
+  $("#ReCompile").hover(
+    function() {
+        $("#ChangeLog").removeClass('highlight');
+        $("#Clean").removeClass('highlight');
+        $("#CodeAnalysis").removeClass('highlight');
+        $("#GetAssets").removeClass('highlight');
+        $("#Restore").removeClass('highlight');
+        $("#Compile").removeClass('highlight');
+        $("#ReCompile").removeClass('highlight');
+        $("#Publish").removeClass('highlight');
+        $("#Test").removeClass('highlight');
+        $("#Clean").addClass('highlight');
+        $("#Restore").addClass('highlight');
+        $("#GetAssets").addClass('highlight');
+        $("#ReCompile").addClass('highlight');
+    },
+    function() {
+        $("#Clean").removeClass('highlight');
+        $("#Restore").removeClass('highlight');
+        $("#GetAssets").removeClass('highlight');
+        $("#ReCompile").removeClass('highlight');
+        $("#Restore").addClass('highlight');
+        $("#Compile").addClass('highlight');
+    });
+  $("#Publish").hover(
+    function() {
+        $("#ChangeLog").removeClass('highlight');
+        $("#Clean").removeClass('highlight');
+        $("#CodeAnalysis").removeClass('highlight');
+        $("#GetAssets").removeClass('highlight');
+        $("#Restore").removeClass('highlight');
+        $("#Compile").removeClass('highlight');
+        $("#ReCompile").removeClass('highlight');
+        $("#Publish").removeClass('highlight');
+        $("#Test").removeClass('highlight');
+        $("#Clean").addClass('highlight');
+        $("#Restore").addClass('highlight');
+        $("#Publish").addClass('highlight');
+    },
+    function() {
+        $("#Clean").removeClass('highlight');
+        $("#Restore").removeClass('highlight');
+        $("#Publish").removeClass('highlight');
+        $("#Restore").addClass('highlight');
+        $("#Compile").addClass('highlight');
+    });
+  $("#Test").hover(
+    function() {
+        $("#ChangeLog").removeClass('highlight');
+        $("#Clean").removeClass('highlight');
+        $("#CodeAnalysis").removeClass('highlight');
+        $("#GetAssets").removeClass('highlight');
+        $("#Restore").removeClass('highlight');
+        $("#Compile").removeClass('highlight');
+        $("#ReCompile").removeClass('highlight');
+        $("#Publish").removeClass('highlight');
+        $("#Test").removeClass('highlight');
+        $("#Restore").addClass('highlight');
+        $("#Compile").addClass('highlight');
+        $("#Test").addClass('highlight');
+    },
+    function() {
+        $("#Restore").removeClass('highlight');
+        $("#Compile").removeClass('highlight');
+        $("#Test").removeClass('highlight');
         $("#Restore").addClass('highlight');
         $("#Compile").addClass('highlight');
     });
@@ -282,9 +422,19 @@ $(document).ready(function() {
     
     <div class="mermaid">
 graph LR
+ChangeLog
 Clean -.-> Restore
+Clean --> ReCompile
+Clean --> Publish
+CodeAnalysis
+GetAssets --> ReCompile
 Restore --> Compile
-Compile
+Restore --> ReCompile
+Restore --> Publish
+Compile --> Test
+ReCompile
+Publish
+Test
 
 
 linkStyle default interpolate basis
