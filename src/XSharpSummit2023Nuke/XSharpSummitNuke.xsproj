@@ -7,7 +7,7 @@
     <RootNamespace>XSharpSummit2023Nuke</RootNamespace>
     <AssemblyName>XSharpSummit2023Nuke</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <Name>XSharpSummit2023Nuke</Name>
+    <Name>XSharpSummitNuke</Name>
     <Dialect>VO</Dialect>
     <vo15>True</vo15>
     <OutputName>XSharpSummit2023Nuke</OutputName>
@@ -38,6 +38,9 @@
     <Compile Include="Program.prg">
       <SubType>Code</SubType>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
   </ItemGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <PreBuildEvent />

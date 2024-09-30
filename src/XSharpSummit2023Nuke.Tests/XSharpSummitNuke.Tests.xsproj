@@ -7,7 +7,7 @@
     <RootNamespace>XSharpSummit2023Nuke.Tests</RootNamespace>
     <AssemblyName>XSharpSummit2023Nuke.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <Name>XSharpSummit2023Nuke.Tests</Name>
+    <Name>XSharpSummitNuke.Tests</Name>
     <OutputName>XSharpSummit2023Nuke.Tests</OutputName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
@@ -48,8 +48,8 @@
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\XSharpSummit2023Nuke\XSharpSummit2023Nuke.xsproj">
-      <Name>XSharpSummit2023Nuke</Name>
+    <ProjectReference Include="..\XSharpSummit2023Nuke\XSharpSummitNuke.xsproj">
+      <Name>XSharpSummitNuke</Name>
       <Project>{c05e8e89-a2a9-4752-bbca-8dc3b4cdbda3}</Project>
       <Private>True</Private>
     </ProjectReference>
