@@ -1,0 +1,5 @@
+﻿{
+  Key: Key,
+  Description: Some Text,
+  Number: 42
+}
