@@ -6,12 +6,12 @@ USING System.Runtime.InteropServices
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 //
-[assembly: AssemblyTitle("XSharpSummit2023Nuke.Tests")]
+[assembly: AssemblyTitle("XSharpSummitNuke.Benchmark")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("ACS Data Systems AG")]
-[assembly: AssemblyProduct("XSharpSummit2023Nuke.Tests")]
-[assembly: AssemblyCopyright("Copyright © ACS Data Systems AG 2023")]
+[assembly: AssemblyProduct("XSharpSummitNuke.Benchmark")]
+[assembly: AssemblyCopyright("Copyright © ACS Data Systems AG 2024")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -21,7 +21,7 @@ USING System.Runtime.InteropServices
 [assembly: ComVisible(FALSE)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("e30b2c66-dc69-4d12-a352-b21ed4661609")]
+[assembly: Guid("102c1a96-9c19-4d63-970a-39f86ca13b3f")]
 
 //
 // Version information for an assembly consists of the following four values:

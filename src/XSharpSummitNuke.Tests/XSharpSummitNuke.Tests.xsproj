@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(XSharpMsBuildDir)\XSharp.Default.props" />
+  <PropertyGroup>
+    <ProjectGuid>e30b2c66-dc69-4d12-a352-b21ed4661609</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>XSharpSummitNuke.Tests</RootNamespace>
+    <AssemblyName>XSharpSummitNuke.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <Name>XSharpSummitNuke.Tests</Name>
+    <OutputName>XSharpSummit2023Nuke.Tests</OutputName>
+    <StartupObject />
+    <Allowdot>True</Allowdot>
+    <NamedArgs>True</NamedArgs>
+    <EnforceSelf>True</EnforceSelf>
+    <Dialect>VO</Dialect>
+    <LB>True</LB>
+    <Unsafe>True</Unsafe>
+    <OVF>True</OVF>
+    <EnforceOverride>True</EnforceOverride>
+    <INS>True</INS>
+    <NoStandardDefs>True</NoStandardDefs>
+    <Vo3>True</Vo3>
+    <Vo10>True</Vo10>
+    <Vo8>True</Vo8>
+    <Vo2>True</Vo2>
+    <Vo13>True</Vo13>
+    <Vo14>True</Vo14>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <PlatformTarget>x86</PlatformTarget>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <WarningLevel>5</WarningLevel>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+  <Import Project="$(XSharpMsBuildDir)\XSharp.targets" />
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="XSharp.Core, Version=2.6.0.0, Culture=neutral, PublicKeyToken=ed555a0467764586">
+      <Name>XSharp.Core</Name>
+      <AssemblyName>XSharp.Core.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+      <HintPath>..\..\..\..\..\Program Files (x86)\XSharp\Assemblies\XSharp.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="XSharp.RT, Version=2.6.0.0, Culture=neutral, PublicKeyToken=ed555a0467764586">
+      <Name>XSharp.RT</Name>
+      <AssemblyName>XSharp.RT.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+      <HintPath>..\..\..\..\..\Program Files (x86)\XSharp\Assemblies\XSharp.RT.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="FluentAssertions">
+      <Version>6.12.1</Version>
+    </PackageReference>
+    <PackageReference Include="Verify">
+      <Version>27.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="Verify.Xunit">
+      <Version>27.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="xunit">
+      <Version>*</Version>
+    </PackageReference>
+    <PackageReference Include="xunit.runner.visualstudio">
+      <Version>2.8.2</Version>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Person\PersonVerifyTests.prg" />
+    <Compile Include="Properties\AssemblyInfo.prg">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="StringExtensions\ShortenTests.prg" />
+    <Compile Include="StringExtensions\TakeLeftTests.prg" />
+    <Compile Include="StringExtensions\TakeRightTests.prg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Person" />
+    <Folder Include="StringExtensions" />
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\XSharpSummitNuke\XSharpSummitNuke.xsproj">
+      <Name>XSharpSummitNuke</Name>
+      <Project>{c05e8e89-a2a9-4752-bbca-8dc3b4cdbda3}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <PreBuildEvent />
+    <PostBuildEvent />
+    <RunPostBuildEvent />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <PreBuildEvent />
+    <PostBuildEvent />
+    <RunPostBuildEvent />
+  </PropertyGroup>
+</Project>

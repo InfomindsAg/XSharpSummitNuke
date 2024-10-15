@@ -2,18 +2,41 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(XSharpMsBuildDir)\XSharp.Default.props" />
   <PropertyGroup>
-    <ProjectGuid>c05e8e89-a2a9-4752-bbca-8dc3b4cdbda3</ProjectGuid>
+    <ProjectGuid>102c1a96-9c19-4d63-970a-39f86ca13b3f</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>XSharpSummit2023Nuke</RootNamespace>
-    <AssemblyName>XSharpSummit2023Nuke</AssemblyName>
+    <RootNamespace>XSharpSummitNuke.Benchmark</RootNamespace>
+    <AssemblyName>XSharpSummitNuke.Benchmark</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <Name>XSharpSummitNuke</Name>
+    <Name>XSharpSummitNuke.Benchmark</Name>
     <Dialect>VO</Dialect>
-    <vo15>True</vo15>
-    <OutputName>XSharpSummit2023Nuke</OutputName>
+    <ins>true</ins>
+    <unsafe>true</unsafe>
+    <vo2>true</vo2>
+    <vo3>true</vo3>
+    <vo4>False</vo4>
+    <vo6>False</vo6>
+    <vo7>False</vo7>
+    <vo9>False</vo9>
+    <vo10>true</vo10>
+    <vo13>true</vo13>
+    <vo14>true</vo14>
+    <vo15>False</vo15>
+    <vo16>False</vo16>
+    <OutputName>XSharpSummitNuke.Benchmark</OutputName>
+    <StartupObject />
+    <NamedArgs>False</NamedArgs>
+    <LB>True</LB>
+    <OVF>True</OVF>
+    <EnforceSelf>True</EnforceSelf>
+    <Allowdot>True</Allowdot>
+    <EnforceOverride>True</EnforceOverride>
+    <NoStandardDefs>True</NoStandardDefs>
+    <Vo8>True</Vo8>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <PlatformTarget>AnyCPU</PlatformTarget>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <WarningLevel>5</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -28,19 +51,23 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="XSharp.Core" />
-    <Reference Include="XSharp.RT" />
+    <Reference Include="XSharp.Rt" />
     <Reference Include="XSharp.VO" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdHocBenchmarks.prg" />
+    <Compile Include="Program.prg" />
     <Compile Include="Properties\AssemblyInfo.prg">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Program.prg">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="BenchmarkDotNet">
+      <Version>0.13.12</Version>
+    </PackageReference>
   </ItemGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <PreBuildEvent />
