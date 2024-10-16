@@ -1,5 +1,0 @@
-﻿{
-  Name: Max Mustermann,
-  Age: 90,
-  Job: Developer
-}

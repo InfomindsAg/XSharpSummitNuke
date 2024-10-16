@@ -1,5 +1,0 @@
-﻿{
-  Name: Max Mustermann,
-  Age: 42,
-  Job: Unemployed
-}
