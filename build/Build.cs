@@ -9,6 +9,7 @@ using Nuke.Common.Execution;
 using Nuke.Common.IO;
 using Nuke.Common.ProjectModel;
 using Nuke.Common.Tooling;
+using Nuke.Common.Tools.DotNet;
 using Nuke.Common.Tools.MSBuild;
 using Nuke.Common.Tools.VSTest;
 using Nuke.Common.Utilities.Collections;
@@ -26,8 +27,7 @@ class Build : NukeBuild
 
 
     private bool IsUnitTestProject(string name)
-        => name.EndsWith(".Tests", StringComparison.CurrentCultureIgnoreCase) ||
-           name.EndsWith(".UnitTests", StringComparison.CurrentCultureIgnoreCase);
+        => name.EndsWith(".Tests", StringComparison.CurrentCultureIgnoreCase);
 
     #region Paths
     protected virtual AbsolutePath GetAssetsFromDirectory => (AbsolutePath)@"C:\TempXSharp\Assets\";
@@ -55,6 +55,12 @@ class Build : NukeBuild
 
     [Parameter("Configuration to build - Default is 'Debug' (local) or 'Release' (server)")]
     public Configuration Configuration = IsLocalBuild ? Configuration.Debug : Configuration.Release;
+
+    [Parameter("Specify the verbosity for the execution of the unit-tests. Allowed values Quiet, Minimal, Normal, Detailed, Diagnostic.")]
+    public readonly DotNetVerbosity TestVerbosity = DotNetVerbosity.Normal;
+
+    [Parameter("Specify the .NET Framework for the execution of the unit-tests. default: net472")]
+    public readonly string TestNetFrameWork = "net472";
 
     [Solution]
     public Solution Solution { get; } = null;
@@ -153,9 +159,14 @@ class Build : NukeBuild
         .Executes(PublishAction);
 
     Target Test => _ => _
-        .DependsOn(Compile)
-        .OnlyWhenStatic(() => UnitTestsAvailable)
-        .Executes(TestAction);
+                .Description("Executes the xUnit-Tests from all test-projects in the current solution")
+                .OnlyWhenStatic(() => UnitTestsAvailable)
+                .Executes(TestAction);
+
+    Target CompileAndTest => _ => _
+                .Description("Compiles the solution and executes the xUnit-Tests from all test-projects in the current solution")
+                .DependsOn(Compile, Test)
+                .Executes(() => { });
     #endregion
 
     #region BuildActions
@@ -199,10 +210,18 @@ class Build : NukeBuild
 
     protected virtual void TestAction()
     {
-        foreach (var testDll in Solution.AllProjects.Where(p => IsUnitTestProject(p.Name)))
+        foreach (var testProject in Solution.AllProjects.Where(p => IsUnitTestProject(p.Name)))
         {
-            //VSTestTasks.VSTest(_ => _.SetTestAssemblies(testDll));
-            Log.Information($"Performing Unit-Tests for project {testDll.Name}");
+            Log.Information($"--------- Performing Unit-Tests for project {testProject.Name} ---------");
+
+            var results = DotNetTasks.DotNetTest(_ => _
+                .SetProjectFile(testProject)
+                .SetConfiguration(Configuration)
+                .SetFramework(TestNetFrameWork)
+                .SetVerbosity(TestVerbosity)
+                .EnableNoBuild()
+                );
+            Log.Information(String.Join(Environment.NewLine, results.Select(q => q.Text)));
         }
     }
     #endregion
