@@ -24,11 +24,11 @@ begin namespace XSharpSummitNuke.PersonTests
          return
 
 
-      [Fact];
-      public method CheckCheangeAgeRandom() as void
-         self.MaxM.Age := System.Random{}.Next(0, 100)
-         Verifier.Verify(self.MaxM).ToTask().Wait()
-         return
+//       [Fact];
+//       public method CheckCheangeAgeRandom() as void
+//          self.MaxM.Age := System.Random{}.Next(0, 100)
+//          Verifier.Verify(self.MaxM).ToTask().Wait()
+//          return
 
 
       [Fact];

@@ -92,6 +92,7 @@
               "Clean",
               "CodeAnalysis",
               "Compile",
+              "CompileAndTest",
               "GetAssets",
               "Publish",
               "ReCompile",
@@ -118,6 +119,7 @@
               "Clean",
               "CodeAnalysis",
               "Compile",
+              "CompileAndTest",
               "GetAssets",
               "Publish",
               "ReCompile",
@@ -125,6 +127,21 @@
               "Test"
             ]
           }
+        },
+        "TestNetFrameWork": {
+          "type": "string",
+          "description": "Specify the .NET Framework for the execution of the unit-tests. default: net472"
+        },
+        "TestVerbosity": {
+          "type": "string",
+          "description": "Specify the verbosity for the execution of the unit-tests. Allowed values Quiet, Minimal, Normal, Detailed, Diagnostic",
+          "enum": [
+            "Detailed",
+            "Diagnostic",
+            "Minimal",
+            "Normal",
+            "Quiet"
+          ]
         },
         "Verbosity": {
           "type": "string",
